@@ -40,11 +40,11 @@ public:
 
 int main() {
     int rectangle_width, rectangle_height;
-    cout << "Enter width and height of the rectangle: ";
+    cout << "width and height of the rectangle:";
     cin >> rectangle_width >> rectangle_height;
 
     int square_side;
-    cout << "Enter the side length of the square: ";
+    cout << "side length of the square: ";
     cin >> square_side;
 
     Rectangle rectangle(rectangle_width, rectangle_height);

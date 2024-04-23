@@ -56,5 +56,30 @@ int main() {
     Library book2 = get_book_details();
     Library book3 = get_book_details();
 
+    cout << "Product 1 Details:" << endl;
+    cout << "Name: " << product1.name << endl;
+    cout << "Description: " << product1.description << endl;
+    cout << "Price: " << product1.price << endl;
+
+    cout << "\nProduct 2 Details:" << endl;
+    cout << "Name: " << product2.name << endl;
+    cout << "Description: " << product2.description << endl;
+    cout << "Price: " << product2.price << endl;
+
+    cout << "\nBook 1 Details:" << endl;
+    cout << "Title: " << book1.title << endl;
+    cout << "Author: " << book1.author << endl;
+    cout << "Publication Year: " << book1.publication_year << endl;
+
+    cout << "\nBook 2 Details:" << endl;
+    cout << "Title: " << book2.title << endl;
+    cout << "Author: " << book2.author << endl;
+    cout << "Publication Year: " << book2.publication_year << endl;
+
+    cout << "\nBook 3 Details:" << endl;
+    cout << "Title: " << book3.title << endl;
+    cout << "Author: " << book3.author << endl;
+    cout << "Publication Year: " << book3.publication_year << endl;
+
     return 0;
 }
