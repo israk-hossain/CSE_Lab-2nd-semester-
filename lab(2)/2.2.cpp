@@ -1,12 +1,14 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
+int main()
+{
 
-int main() {
-    int n, sum = 0;
-    cin >> n;
-    for (int i = 1; i <= n; ++i) {
-        sum += i;
+    int num,sum=0;
+    cin>>num;
+    for(int i=0;i<=num;++i)
+    {
+
+        sum+=i;
     }
-    cout << "Sum = " << sum << endl;
-    return 0;
+    cout<<sum<<endl;
 }
