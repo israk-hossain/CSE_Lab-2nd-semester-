@@ -1,0 +1,6 @@
+1.Codecademy
+2.YouTube
+3.SoloLearn
+4.OpenAI
+5.BlackboxAI
+6.GeeksforGeeks

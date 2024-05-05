@@ -1,85 +1,109 @@
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 
 class OnlineShoppingPlatform {
-public:
+private:
     string name;
     string description;
     double price;
 
+public:
     void input_product_details() {
+        cout << "Enter product name: ";
         getline(cin, name);
+
+        cout << "Enter product description: ";
         getline(cin, description);
-        cin >> price;
+
+        cout << "Enter product price: ";
+        while (!(cin >> price) || price < 0) {
+            cout << "Invalid input. Please enter a non-negative number for price: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         cin.ignore();
+    }
+
+    void display_product_details() {
+        cout << "Name: " << name << endl;
+        cout << "Description: " << description << endl;
+        cout << "Price: " << price << endl;
     }
 };
 
 class Library {
-public:
+private:
     string title;
     string author;
     int publication_year;
 
+public:
     void input_book_details() {
+        cout << "Enter book title: ";
         getline(cin, title);
+
+        cout << "Enter book author: ";
         getline(cin, author);
-        cin >> publication_year;
+
+        cout << "Enter publication year: ";
+        while (!(cin >> publication_year) || publication_year < 0) {
+            cout << "Invalid input. Please enter a valid publication year: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         cin.ignore();
+    }
+
+    void display_book_details() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Publication Year: " << publication_year << endl;
     }
 };
 
-OnlineShoppingPlatform get_product_details() {
-    OnlineShoppingPlatform product;
-    getline(cin, product.name);
-    getline(cin, product.description);
-    cin >> product.price;
-    cin.ignore();
-    return product;
-}
-
-Library get_book_details() {
-    Library book;
-    getline(cin, book.title);
-    getline(cin, book.author);
-    cin >> book.publication_year;
-    cin.ignore();
-    return book;
-}
-
 int main() {
-    OnlineShoppingPlatform product1 = get_product_details();
-    OnlineShoppingPlatform product2 = get_product_details();
+    OnlineShoppingPlatform product1;
+    OnlineShoppingPlatform product2;
 
-    Library book1 = get_book_details();
-    Library book2 = get_book_details();
-    Library book3 = get_book_details();
+    Library book1;
+    Library book2;
+    Library book3;
 
-    cout << "Product 1 Details:" << endl;
-    cout << "Name: " << product1.name << endl;
-    cout << "Description: " << product1.description << endl;
-    cout << "Price: " << product1.price << endl;
+    cout << "Enter details for Product 1:" << endl;
+    product1.input_product_details();
+
+    cout << "\nEnter details for Product 2:" << endl;
+    product2.input_product_details();
+
+    cout << "\nEnter details for Book 1:" << endl;
+    book1.input_book_details();
+
+    cout << "\nEnter details for Book 2:" << endl;
+    book2.input_book_details();
+
+    cout << "\nEnter details for Book 3:" << endl;
+    book3.input_book_details();
+
+    cout << "\nProduct 1 Details:" << endl;
+    product1.display_product_details();
 
     cout << "\nProduct 2 Details:" << endl;
-    cout << "Name: " << product2.name << endl;
-    cout << "Description: " << product2.description << endl;
-    cout << "Price: " << product2.price << endl;
+    product2.display_product_details();
 
     cout << "\nBook 1 Details:" << endl;
-    cout << "Title: " << book1.title << endl;
-    cout << "Author: " << book1.author << endl;
-    cout << "Publication Year: " << book1.publication_year << endl;
+    book1.display_book_details();
 
     cout << "\nBook 2 Details:" << endl;
-    cout << "Title: " << book2.title << endl;
-    cout << "Author: " << book2.author << endl;
-    cout << "Publication Year: " << book2.publication_year << endl;
+    book2.display_book_details();
 
     cout << "\nBook 3 Details:" << endl;
-    cout << "Title: " << book3.title << endl;
-    cout << "Author: " << book3.author << endl;
-    cout << "Publication Year: " << book3.publication_year << endl;
+    book3.display_book_details();
 
     return 0;
 }
+
+
+
+

@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 class Parent {
 protected:
     int* arr;
@@ -27,18 +29,17 @@ public:
 
 int main() {
     int length;
-    std::cout << "Enter the length of the array: ";
-    std::cin >> length;
+    cin >> length;
 
     int* array = new int[length];
-    std::cout << "Enter " << length << " integers separated by spaces: ";
+    cout << "Enter " << length << " integers separated by spaces: ";
     for (int i = 0; i < length; ++i) {
-        std::cin >> array[i];
+        cin >> array[i];
     }
 
     Child childObj(array, length);
     double average = childObj.calculate_average();
-    std::cout << "Average: " << average << std::endl;
+    cout << "Average: " << average << endl;
 
     return 0;
 }

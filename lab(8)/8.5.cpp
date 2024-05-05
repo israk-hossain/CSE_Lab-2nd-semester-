@@ -1,43 +1,39 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-class Parent
-{
+class Base {
 protected:
-    string str;
+    string inputString;
+
 public:
-    Parent(const string& s) : str(s) {}
-    virtual void display() const
-    {
-        cout << "String in base class: " << str << endl;
+    void getInput() {
+        cout << "Enter a string: ";
+        getline(cin, inputString);
     }
+
+    virtual void convertToUpper() {}
 };
 
-class Child : public Parent
-{
+class Derived : public Base {
 public:
-    Child(const string& s) : Parent(s) {}
-
-    void display() const override
-    {
-        cout << "String in child class (uppercase): ";
-        for (char c : str)
-        {
-            cout << uppercase(c);
+    void convertToUpper() override {
+        for (char& c : inputString) {
+            if (c >= 'a' && c <= 'z') {
+                c = c - 'a' + 'A';
+            }
         }
-        cout << endl;
+    }
+
+    void printUppercase() const {
+        cout << "Uppercase string: " << inputString << endl;
     }
 };
 
-int main()
-{
-    string input;
-    getline(cin, input);
-    Parent* parentObj = new Child(input);
-    parentObj->display();
-
-    delete parentObj;
+int main() {
+    Derived obj;
+    obj.getInput();
+    obj.convertToUpper();
+    obj.printUppercase();
     return 0;
 }

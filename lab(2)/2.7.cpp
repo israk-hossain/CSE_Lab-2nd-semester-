@@ -19,4 +19,3 @@ int main()
     cout<<reversenumber(num)<<endl;
 }
 
-

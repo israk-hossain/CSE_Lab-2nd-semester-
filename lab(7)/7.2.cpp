@@ -43,17 +43,13 @@ public:
     }
 };
 
-int Maxi(int a, int b);
 
 int main() {
     Student student;
     student.set_data();
     student.display_info();
-    cout << "Maximum Mark: " << Maxi(100, student.marks) << endl;
 
     return 0;
 }
 
-int Maxi(int a, int b) {
-    return (a > b) ? a : b;
-}
+

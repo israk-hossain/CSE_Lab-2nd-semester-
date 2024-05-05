@@ -1,7 +1,5 @@
-isea
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 class Student {
@@ -11,7 +9,7 @@ private:
     int mark;
 
 public:
-    Student(string name, string id, int mark) : name(name), id(id), mark(mark) {}
+    Student(const string& name, const string& id, int mark) : name(name), id(id), mark(mark) {}
 
     string getName() const {
         return name;
@@ -28,7 +26,7 @@ public:
 
 class Result : public Student {
 public:
-    Result(string name, string id, int mark) : Student(name, id, mark) {}
+    Result(const string& name, const string& id, int mark) : Student(name, id, mark) {}
 
     void printInfo() const {
         cout << "Name: " << getName() << endl;
@@ -40,9 +38,20 @@ public:
 int main() {
     string name, id;
     int mark;
+
+    cout << "Enter student name: ";
     getline(cin, name);
+
+    cout << "Enter student ID: ";
     getline(cin, id);
-    cin >> mark;
+
+    cout << "Enter student mark: ";
+    while (!(cin >> mark) || mark < 0) {
+        cout << "Invalid mark. Please enter a non-negative integer: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
     Result student(name, id, mark);
     student.printInfo();
 

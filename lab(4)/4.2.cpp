@@ -1,33 +1,40 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
+
 bool isprime(int num)
 {
-    if(num<=1)
+    if(num <= 1)
         return false;
-    for(int i=2; i<=num/2; ++i)
+    for(int i = 2; i <= sqrt(num); ++i)
     {
-        if (num%i==0)
+        if (num % i == 0)
             return false;
     }
     return true;
 }
-void displayprimebetween(int start,int end)
-{
 
-    cout<<"Prime Number Between "<<start<<" And "<<end<<"Are :";
-    for(int i=start; i<=end; ++i)
+void displayprimebetween(int start, int end)
+{
+    cout << "Prime Numbers Between " << start << " And " << end << " are: ";
+    for(int i = start; i <= end; ++i)
     {
-        if(isprime(i))cout<<i<<" ";
+        if(isprime(i))
+            cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
+
 int main()
 {
+    int start, end;
+    cin >> start >> end;
 
+    while(start > end)
+    {
+        cin >> start >> end;
+    }
 
-    int start,end;
-    cin>>start>>end;;
-    displayprimebetween(start,end);
+    displayprimebetween(start, end);
     return 0;
 }
-
