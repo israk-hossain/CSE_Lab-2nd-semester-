@@ -1,50 +1,58 @@
-isea
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 class Student {
-private:
+protected:
     string name;
-    string id;
-    int mark;
+    int id;
+    float mark;
 
 public:
-    Student(string name, string id, int mark) : name(name), id(id), mark(mark) {}
-
-    string getName() const {
-        return name;
+    void setData(string n, int i, float m) {
+        name = n;
+        id = i;
+        mark = m;
     }
 
-    string getID() const {
-        return id;
-    }
-
-    int getMark() const {
-        return mark;
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Mark: " << mark << endl;
     }
 };
 
 class Result : public Student {
 public:
-    Result(string name, string id, int mark) : Student(name, id, mark) {}
+    void setStudentData() {
+        string n;
+        int i;
+        float m;
 
-    void printInfo() const {
-        cout << "Name: " << getName() << endl;
-        cout << "ID: " << getID() << endl;
-        cout << "Mark: " << getMark() << endl;
+        cout << "Enter name: ";
+        cin >> n;
+        cout << "Enter ID: ";
+        cin >> i;
+        cout << "Enter mark: ";
+        cin >> m;
+
+        setData(n, i, m);
+    }
+
+    void displayResult() {
+        cout << "Result Information:" << endl;
+        cout << "-------------------" << endl;
+        cout << "Name: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Mark: " << mark << endl;
     }
 };
 
 int main() {
-    string name, id;
-    int mark;
-    getline(cin, name);
-    getline(cin, id);
-    cin >> mark;
-    Result student(name, id, mark);
-    student.printInfo();
+    Result studentResult;
+    studentResult.setStudentData();
+    studentResult.displayResult();
 
     return 0;
 }
